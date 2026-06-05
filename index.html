@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MoonBean Café — Bangalore</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=Caveat:wght@700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-logo">Moon<span>Bean</span> Café</div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#brand">Our Story</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#builder">Build Coffee</a></li>
+    <li><a href="#deals">Deals</a></li>
+    <li><a href="#reservation">Reserve</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+  </ul>
+  <button class="nav-cart-btn" onclick="openCart()">🛒 Cart <span id="cart-count">0</span></button>
+  <div class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-rings"></div>
+  <div class="hero-badge">☕ Bangalore's Finest Craft Coffee</div>
+  <h1 class="hero-title">Moon<em>Bean</em><br/>Café</h1>
+  <p class="hero-sub">Where every sip tells a story. Order online, build your perfect coffee, and reserve your favourite corner — all in one place.</p>
+  <div class="hero-ctas">
+    <a href="#menu" class="btn-primary">Browse Menu</a>
+    <a href="#builder" class="btn-outline">Build Your Coffee ✨</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Menu Items</div></div>
+    <div class="stat"><div class="stat-num">4.9★</div><div class="stat-label">Google Rating</div></div>
+    <div class="stat"><div class="stat-num">2k+</div><div class="stat-label">Happy Customers</div></div>
+    <div class="stat"><div class="stat-num">6yr</div><div class="stat-label">Serving Bangalore</div></div>
+  </div>
+</section>
+
+<!-- ══ BRAND VISUAL STRIP ══ -->
+<div id="brand">
+  <div class="brand-strip">
+    <div class="brand-left">
+      <div class="brand-tagline">✦ Est. 2018 · Koramangala, Bangalore</div>
+      <h2 class="brand-headline">More Than Coffee —<br/>It's a <em>Feeling</em></h2>
+      <p class="brand-body">MoonBean was born from a simple belief: that a great cup of coffee can turn an ordinary moment into something magical. We source single-origin beans, roast in-house every week, and craft every drink with obsessive care. Come as you are. Stay as long as you like.</p>
+      <div class="brand-pills">
+        <span class="pill">🌱 Single Origin Beans</span>
+        <span class="pill">🔥 In-House Roasting</span>
+        <span class="pill">🥛 Specialty Milk Options</span>
+        <span class="pill">📶 Free High-Speed WiFi</span>
+        <span class="pill">🎵 Live Music Fridays</span>
+        <span class="pill">🌙 Open Till 9:30 PM</span>
+      </div>
+    </div>
+    <div class="brand-right">
+      <div class="brand-mosaic">
+        <img class="mosaic-img" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=500&q=80" alt="Coffee cup"/>
+        <img class="mosaic-img" src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=500&q=80" alt="Café ambience"/>
+        <img class="mosaic-img" src="https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?w=500&q=80" alt="Coffee art"/>
+        <img class="mosaic-img" src="https://images.unsplash.com/photo-1559305616-3f99cd43e353?w=500&q=80" alt="Café seating"/>
+      </div>
+      <div class="mosaic-overlay"></div>
+      <div class="mosaic-badge">
+        <span>⭐</span>
+        <span class="big">4.9</span>
+        <span>Google</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURED -->
+<section id="featured">
+  <div class="container">
+    <div class="section-label">Staff Picks</div>
+    <h2 class="section-title">Today's <em>Favourites</em></h2>
+    <p class="section-desc">Handpicked by our baristas — the drinks and bites everyone loves right now.</p>
+    <div class="featured-grid" id="featuredGrid"></div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="container">
+    <div class="section-label">Full Menu</div>
+    <h2 class="section-title">Everything We <em>Serve</em></h2>
+    <div class="menu-tabs" id="menuTabs"></div>
+    <div class="menu-grid" id="menuGrid"></div>
+  </div>
+</section>
+
+<!-- BUILD YOUR COFFEE -->
+<section id="builder">
+  <div class="container">
+    <div class="section-label">Personalise</div>
+    <h2 class="section-title">Build Your <em>Coffee</em></h2>
+    <p class="section-desc">Craft your perfect cup — choose every detail and we'll prepare it exactly how you like it.</p>
+    <div class="builder-grid">
+      <div class="builder-options">
+        <div class="builder-group"><label>Coffee Base</label><div class="option-chips" id="chipsBase"></div></div>
+        <div class="builder-group"><label>Milk Type</label><div class="option-chips" id="chipsMilk"></div></div>
+        <div class="builder-group"><label>Sugar Level</label><div class="option-chips" id="chipsSugar"></div></div>
+        <div class="builder-group"><label>Ice Level</label><div class="option-chips" id="chipsIce"></div></div>
+        <div class="builder-group">
+          <label>Extra Toppings <small style="color:#a89070">(+₹20 each)</small></label>
+          <div class="option-chips" id="chipsToppings"></div>
+        </div>
+      </div>
+      <div class="builder-preview">
+        <div class="cup-visual" id="builderEmoji">☕</div>
+        <div class="coffee-name-display" id="builderName">Cappuccino</div>
+        <div class="coffee-details" id="builderDetails">Full Fat · Medium Sugar · No Ice</div>
+        <div class="coffee-price-display" id="builderPrice">₹180</div>
+        <button class="add-to-cart-big" onclick="addBuilderToCart()">Add to Cart 🛒</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEALS -->
+<section id="deals">
+  <div class="container">
+    <div class="section-label">Smart Savings</div>
+    <h2 class="section-title">Combo <em>Deals</em></h2>
+    <p class="section-desc">Great food, better together. Discounts are applied automatically in your cart.</p>
+    <div class="deals-grid" id="dealsGrid"></div>
+  </div>
+</section>
+
+<!-- RESERVATION -->
+<section id="reservation">
+  <div class="container">
+    <div class="section-label">Book a Spot</div>
+    <h2 class="section-title">Reserve Your <em>Table</em></h2>
+    <div class="reservation-grid">
+      <div>
+        <div class="form-group"><label>Your Name</label><input class="form-input" id="resName" type="text" placeholder="e.g. Priya Sharma"/></div>
+        <div class="form-group"><label>Phone Number</label><input class="form-input" id="resPhone" type="tel" placeholder="10-digit mobile"/></div>
+        <div class="form-group"><label>Date</label><input class="form-input" id="resDate" type="date"/></div>
+        <div class="form-group">
+          <label>Time Slot</label>
+          <select class="form-select" id="resTime">
+            <option value="">Select time</option>
+            <option>8:00 AM – 9:00 AM</option><option>9:00 AM – 10:00 AM</option>
+            <option>10:00 AM – 11:00 AM</option><option>11:00 AM – 12:00 PM</option>
+            <option>12:00 PM – 1:00 PM</option><option>2:00 PM – 3:00 PM</option>
+            <option>4:00 PM – 5:00 PM</option><option>6:00 PM – 7:00 PM</option>
+            <option>7:00 PM – 8:00 PM</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Table Size</label>
+          <select class="form-select" id="resTable">
+            <option value="">Select size</option>
+            <option>2 Seater – Cosy Window</option><option>4 Seater – Central</option>
+            <option>6 Seater – Group Corner</option><option>8 Seater – Private Booth</option>
+          </select>
+        </div>
+        <button class="btn-primary" onclick="makeReservation()" style="width:100%;padding:.85rem">Confirm Reservation 📅</button>
+      </div>
+      <div class="reservation-info">
+        <div class="map-wrap">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.6056!2d77.6245!3d12.9352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1583126aac8f%3A0x168e8d0c0b0afb5c!2sKoramangala%2C%20Bengaluru%2C%20Karnataka%20560034!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="res-info-list">
+          <div class="res-info-item"><div class="res-icon">📍</div><div><div class="res-info-label">Address</div><div class="res-info-val">12, Coffee Lane, Koramangala<br/>Bangalore, Karnataka 560034</div></div></div>
+          <div class="res-info-item"><div class="res-icon">📞</div><div><div class="res-info-label">Phone</div><div class="res-info-val">0897654321</div></div></div>
+          <div class="res-info-item"><div class="res-icon">🕗</div><div><div class="res-info-label">Hours</div><div class="res-info-val">Mon – Sun: 7:30 AM – 9:30 PM</div></div></div>
+          <div class="res-info-item"><div class="res-icon">🛵</div><div><div class="res-info-label">Delivery</div><div class="res-info-val">Free above ₹1000 · Zomato &amp; Swiggy</div></div></div>
+          <div class="res-info-item"><div class="res-icon">💳</div><div><div class="res-info-label">Payment</div><div class="res-info-val">UPI · Card · Cash</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="container">
+    <div class="section-label">What People Say</div>
+    <h2 class="section-title">Customer <em>Reviews</em></h2>
+    <div class="reviews-grid" id="reviewsGrid"></div>
+  </div>
+</section>
+
+<!-- ORDER HISTORY -->
+<section id="history">
+  <div class="container">
+    <div class="section-label">Your Orders</div>
+    <h2 class="section-title">Order <em>History</em></h2>
+    <div class="history-list" id="historyList"><p class="no-history">No orders yet. Start by browsing the menu! ☕</p></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">MoonBean Café</div>
+  <div class="footer-tagline">"Every cup tells a story."</div>
+  <div class="footer-info">12, Coffee Lane, Koramangala, Bangalore · 📞 0897654321<br/>Mon–Sun: 7:30 AM – 9:30 PM · Made with ❤️ in Bangalore</div>
+</footer>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header"><div class="cart-title">Your Order 🛒</div><button class="close-cart" onclick="closeCart()">✕</button></div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-footer">
+    <div class="deal-banner" id="dealBanner"></div>
+    <div class="cart-total"><span>Subtotal</span><span id="cartTotal">₹0</span></div>
+    <div class="cart-total" id="discountRow" style="display:none;color:var(--mint)"><span>Discount</span><span id="discountAmt"></span></div>
+    <div class="cart-total" style="font-weight:700;font-size:1.15rem"><span>Total</span><span id="cartFinalTotal" style="color:var(--gold)">₹0</span></div>
+    <button class="add-to-cart-big" onclick="placeOrder()">Place Order ✅</button>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="orderModal">
+  <div class="modal">
+    <div class="modal-icon">✅</div>
+    <div class="modal-title">Done!</div>
+    <div class="modal-sub" id="modalMsg"></div>
+    <button class="modal-close" onclick="document.getElementById('orderModal').classList.remove('open')">Continue</button>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
